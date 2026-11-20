@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Daily ToDo — Offline</title><link rel="stylesheet" href="style.css"></head>
+<body><button id="floating-btn" aria-label="Open Daily ToDo">✓</button>
+<main id="todo-container" class="hidden" aria-label="Daily ToDo">
+<header class="header"><div class="title-block"><h1>My Day</h1><span class="date-label" id="date-label"></span></div><button id="close-btn" class="icon-btn electron-only" aria-label="Hide task panel">×</button></header>
+<section class="account-bar"><span>Offline workspace</span><span id="sync-status" role="status">Saved on this device</span></section>
+<nav class="feature-tabs" aria-label="Features"><button id="tasks-tab" class="active">Tasks</button><button id="clipboard-tab">Saved snippets</button></nav>
+<section id="tasks-panel" class="feature-panel"><div class="progress-container"><div class="progress-text"><span id="completed-count">0</span> of <span id="total-count">0</span> done</div><div class="progress-bar-bg"><div id="progress-bar" class="progress-bar-fill"></div></div></div>
+<form id="add-form" class="input-container"><input id="new-task-input" aria-label="New task" placeholder="Add a new task" maxlength="2000" autocomplete="off"><button id="add-btn" class="icon-btn primary" aria-label="Add task">+</button></form>
+<div class="list-container" id="task-list"></div></section>
+<section id="clipboard-panel" class="feature-panel hidden"><div class="clipboard-toolbar"><input id="clipboard-search" type="search" placeholder="Search saved snippets" aria-label="Search saved snippets"><button id="clip-paste-btn" class="mini-btn">Save clipboard</button></div><p class="clip-meta">Clipboard is read only when you click Save clipboard.</p><div id="clipboard-list" class="list-container"></div><button id="clip-clear-btn" class="mini-btn">Clear snippets</button></section>
+<footer class="offline-footer"><button id="export-btn" class="mini-btn">Export backup</button><label class="mini-btn" for="import-file">Import backup</label><input id="import-file" type="file" accept=".json,application/json" hidden><span>zaid.dev · invnty</span></footer></main>
+<script src="task-store.js"></script><script src="renderer.js"></script></body></html>

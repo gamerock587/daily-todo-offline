@@ -1,0 +1,51 @@
+{
+  "name": "daily-todo-offline",
+  "version": "1.0.0",
+  "description": "Offline desktop task widget with local backups and manual clipboard snippets",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "build": {
+    "appId": "com.daily.todolist",
+    "productName": "Daily ToDo",
+    "files": [
+      "index.html",
+      "main.js",
+      "renderer.js",
+      "style.css",
+      "manifest.json",
+      "app-icon.png",
+      "app-icon.ico",
+      "tray.png",
+      "preload.js",
+      "task-store.js"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "app-icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [],
+  "author": "Zaid Osama (zaid.dev / invnty)",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
+  }
+}
