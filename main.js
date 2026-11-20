@@ -147,7 +147,7 @@ function createWindow() {
   mainWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
   mainWindow.webContents.setWindowOpenHandler(() => ({action:'deny'}));
   mainWindow.webContents.on('will-navigate', event => event.preventDefault());
-  mainWindow.webContents.session.webRequest.onBeforeRequest((details, callback) => callback({cancel: !details.url.startsWith('file:') && !details.url.startsWith('devtools:')}));
+  mainWindow.webContents.session.webRequest.onBeforeRequest((details, callback) => callback({cancel: !['file:', 'devtools:', 'blob:', 'data:'].some(scheme => details.url.startsWith(scheme))}));
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   screen.on('display-added', applyVirtualBounds);

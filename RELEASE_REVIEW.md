@@ -13,3 +13,5 @@ This is a new source snapshot without the original Git history. User environment
 ## Limits
 
 A passing check is evidence for its stated scope, not a certification of complete security or compatibility. Review README.md and USAGE.md before running.
+
+Packaged Electron 45 smoke test passed: actual app startup, isolated preload (renderer has no Node require), persistent local tasks and JSON backup download. Remote protocols are blocked while local blob downloads remain available.
